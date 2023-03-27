@@ -35,10 +35,13 @@ jobs:
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/${{ github.repository }}/k8stutorial:0.0.95
           mvn clean spring-boot:build-image -Dspring-boot.build-image.imageName=$IMAGE_ID
-
+      
+      - name: Docker Login
+        run: |
+          GH_TOKEN=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
+          echo $GH_TOKEN | docker login ghcr.io -u marcos-fdez-alrez --password-stdin
+      
       - name: Push image to GitHub Container Registry
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/${{ github.repository }}/k8stutorial:0.0.95
-          GH_TOKEN=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
-          echo $GH_TOKEN | docker login ghcr.io -u marcos-fdez-alrez --password-stdin
           docker push $IMAGE_ID
