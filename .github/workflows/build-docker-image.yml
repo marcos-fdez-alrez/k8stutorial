@@ -40,5 +40,5 @@ jobs:
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/${{ github.repository }}/k8stutorial:0.0.95
           GH_TOKEN=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
-          echo $CR_PAT | docker login ghcr.io -u marcos-fdez-alrez --password-stdin
+          echo $GH_TOKEN | docker login ghcr.io -u marcos-fdez-alrez --password-stdin
           docker push $IMAGE_ID
