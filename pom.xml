@@ -88,5 +88,13 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<distributionManagement>
+   		<repository>
+     			<id>github</id>
+     			<name>GitHub OWNER Apache Maven Packages</name>
+     			<url>https://maven.pkg.github.com/marcos-fdez-alrez/k8stutorial</url>
+   		</repository>
+	</distributionManagement>
 
 </project>
